@@ -7,10 +7,12 @@ if ((hours > 23) || (minutes > 59))
 else {
 	var result = convertToRoman(hours) + ':' + convertToRoman(minutes);
 	process.stdout.write(result + '\n');
-	PrintASCI(result);
+	PrintASCII(result);
 }
 
 function convertToRoman(value){
+	if (value == 0)
+		return '--'
 	var romanNumerals = {
 		50 : 'L',
 		40 : 'XL',
@@ -40,64 +42,75 @@ function convertToRoman(value){
 	return result;
 }
 
-function PrintASCI(result) {
-	var I_ASCI = [' (_)(_)(_) ',
-				  '    (_)    ',
-				  '    (_)    ',
-				  '    (_)    ',
-				  '    (_)    ',
-				  '    (_)    ',
-				  ' (_)(_)(_) '
+function PrintASCII(result) {
+	var I_ASCII = [	' (_)(_)(_) ',
+					'    (_)    ',
+					'    (_)    ',
+					'    (_)    ',
+					'    (_)    ',
+					'    (_)    ',
+					' (_)(_)(_) '
 				]
-	var V_ASCI = [' (_)           (_) ',
-				  '  (_)         (_)  ',
-				  '   (_)       (_)   ',
-				  '    (_)     (_)    ',
-				  '     (_)   (_)     ',
-				  '      (_)_(_)      ',
-				  '        (_)        '
+	var V_ASCII = [	' (_)           (_) ',
+					'  (_)         (_)  ',
+					'   (_)       (_)   ',
+					'    (_)     (_)    ',
+					'     (_)   (_)     ',
+					'      (_)_(_)      ',
+					'        (_)        '
 
 				]
 
-	var X_ASCI = [' (_)         (_) ',
-				  '   (_)     (_)   ',
-				  '     (_) (_)     ',
-				  '       (_)       ',
-				  '     (_) (_)     ',
-				  '   (_)     (_)   ',
-				  ' (_)         (_) '
+	var X_ASCII = [	' (_)         (_) ',
+					'   (_)     (_)   ',
+					'     (_) (_)     ',
+					'       (_)       ',
+					'     (_) (_)     ',
+					'   (_)     (_)   ',
+					' (_)         (_) '
 				  
 				]
 
-	var L_ASCI = [' (_)             ',
-				  ' (_)             ',
-				  ' (_)             ',
-				  ' (_)             ',
-				  ' (_)             ',
-				  ' (_)             ',
-				  ' (_)(_)(_)(_)(_) '
+	var L_ASCII = [  ' (_)             ',
+					' (_)             ',
+					' (_)             ',
+					' (_)             ',
+					' (_)             ',
+					' (_)             ',
+					' (_)(_)(_)(_)(_) '
 				  
 				]
-	var ASCI_2 = ['        ',
-				  '  _  _  ',
-				  ' (_)(_) ',
-				  ' (_)(_) ',
-				  '  -  -  ',
-				  ' (_)(_) ',
-				  ' (_)(_) '
+	var ASCII_2 = [	'        ',
+					'  _  _  ',
+					' (_)(_) ',
+					' (_)(_) ',
+					'  -  -  ',
+					' (_)(_) ',
+					' (_)(_) '
 				]
 
-	var dict_ASCI = {'I' : I_ASCI,
-					 'V' : V_ASCI,
-					 'X' : X_ASCI,
-					 'L' : L_ASCI,
-					 ':' : ASCI_2,
-						}
+	var ASCII_0 = [	'        ',
+					'        ',
+					'        ',
+					' (_)(_) ',
+					'        ',
+					'        ',
+					'        '
+				]
+
+	var dict_ASCII = {'I' : I_ASCII,
+					 'V' : V_ASCII,
+					 'X' : X_ASCII,
+					 'L' : L_ASCII,
+					 ':' : ASCII_2,
+					 '-' : ASCII_0
+					}
+
 	for (var numberStr = 0; numberStr < 7; numberStr++)
 	{
 		str = '';
 		for (var index = 0; index < result.length; index++)
-			str += dict_ASCI[result[index]][numberStr];
+			str += dict_ASCII[result[index]][numberStr];
 		process.stdout.write(str + '\n');
 	}
 
