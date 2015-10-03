@@ -2,12 +2,12 @@ var hours = process.argv[2];
 var minutes = process.argv[3];
 
 if (hours > 23 || minutes > 59) {
-	process.stdout.write('Время указано неверно.');
+    process.stdout.write('Время указано неверно.');
 }
 else {
-	var result = convertToRoman(hours) + ':' + convertToRoman(minutes);
-	process.stdout.write(result + '\n');
-	PrintASCII(result);
+    var result = convertToRoman(hours) + ':' + convertToRoman(minutes);
+    process.stdout.write(result + '\n');
+    PrintASCII(result);
 }
 
 function convertToRoman(value){
