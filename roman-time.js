@@ -28,9 +28,9 @@ function convertToRoman(value){
     var arrayNumbers = Object.keys(romanNumerals).sort(compareNumeric);
     var result = '';
     var numberCount = 0;
-
+    
     while (value > 0) {
-        if (value >= arrayNumbers[numberCount]) {
+        if (value >= Number(arrayNumbers[numberCount])) {
             value -= arrayNumbers[numberCount];
             result += romanNumerals[arrayNumbers[numberCount]];
         }
@@ -45,10 +45,10 @@ function convertToRoman(value){
 }
 
 function compareNumeric(a, b) {
-    if (a < b) {
+    if (Number(a) < Number(b)) {
         return 1;
     }
-    if (a > b) {
+    if (Number(a) > Number(b)) {
         return -1;
     }
 }
@@ -56,7 +56,8 @@ function compareNumeric(a, b) {
 function PrintASCII(result) {
     var dict_ASCII = {
                     I : 
-                    [	' (_)(_)(_) ',
+                    [	
+                        ' (_)(_)(_) ',
                         '    (_)    ',
                         '    (_)    ',
                         '    (_)    ',
@@ -67,7 +68,8 @@ function PrintASCII(result) {
                         ,
 
                     V : 
-                    [	' (_)           (_) ',
+                    [	
+                        ' (_)           (_) ',
                         '  (_)         (_)  ',
                         '   (_)       (_)   ',
                         '    (_)     (_)    ',
@@ -78,7 +80,8 @@ function PrintASCII(result) {
                         ,
 
                     X : 
-                    [	' (_)         (_) ',
+                    [	
+                        ' (_)         (_) ',
                         '   (_)     (_)   ',
                         '     (_) (_)     ',
                         '       (_)       ',
@@ -90,7 +93,8 @@ function PrintASCII(result) {
                         ,
 
                     L :
-                    [	' (_)             ',
+                    [	
+                        ' (_)             ',
                         ' (_)             ',
                         ' (_)             ',
                         ' (_)             ',
@@ -101,7 +105,8 @@ function PrintASCII(result) {
                         ,
 
                     ':' : 
-                    [	'        ',
+                    [	
+                        '        ',
                         '  _  _  ',
                         ' (_)(_) ',
                         ' (_)(_) ',
@@ -112,7 +117,8 @@ function PrintASCII(result) {
                         ,
 
                     '-' :
-                    [	'        ',
+                    [	
+                        '        ',
                         '        ',
                         '        ',
                         ' (_)(_) ',
