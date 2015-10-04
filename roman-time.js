@@ -2,15 +2,15 @@ var hours = process.argv[2];
 var minutes = process.argv[3];
 
 if (hours > 23 || minutes > 59) {
-    process.stdout.write('Время указано неверно.');
+    console.log('Время указано неверно.');
 }
 else {
     var result = convertToRoman(hours) + ':' + convertToRoman(minutes);
-    process.stdout.write(result + '\n');
-    PrintASCII(result);
+    console.log(result + '\n');
+    printASCII(result);
 }
 
-function convertToRoman(value){
+function convertToRoman (value) {
     if (value == 0){
         return '--'
     }
@@ -44,7 +44,7 @@ function convertToRoman(value){
     return result;
 }
 
-function compareNumeric(a, b) {
+function compareNumeric (a, b) {
     if (Number(a) < Number(b)) {
         return 1;
     }
@@ -53,10 +53,10 @@ function compareNumeric(a, b) {
     }
 }
 
-function PrintASCII(result) {
+function printASCII (result) {
     var dict_ASCII = {
                     I : 
-                    [	
+                    [   
                         ' (_)(_)(_) ',
                         '    (_)    ',
                         '    (_)    ',
@@ -68,7 +68,7 @@ function PrintASCII(result) {
                         ,
 
                     V : 
-                    [	
+                    [
                         ' (_)           (_) ',
                         '  (_)         (_)  ',
                         '   (_)       (_)   ',
@@ -79,8 +79,8 @@ function PrintASCII(result) {
                     ]
                         ,
 
-                    X : 
-                    [	
+                    X :
+                    [
                         ' (_)         (_) ',
                         '   (_)     (_)   ',
                         '     (_) (_)     ',
@@ -93,7 +93,7 @@ function PrintASCII(result) {
                         ,
 
                     L :
-                    [	
+                    [
                         ' (_)             ',
                         ' (_)             ',
                         ' (_)             ',
@@ -105,7 +105,7 @@ function PrintASCII(result) {
                         ,
 
                     ':' : 
-                    [	
+                    [
                         '        ',
                         '  _  _  ',
                         ' (_)(_) ',
@@ -117,7 +117,7 @@ function PrintASCII(result) {
                         ,
 
                     '-' :
-                    [	
+                    [
                         '        ',
                         '        ',
                         '        ',
@@ -127,13 +127,13 @@ function PrintASCII(result) {
                         '        '
                     ] 
                     }
-
+                    
     for (var numberStr = 0; numberStr < 7; numberStr++) {
-	    str = '';
+        str = '';
         for (var index = 0; index < result.length; index++) {
             str += dict_ASCII[result[index]][numberStr];
         }
-        process.stdout.write(str + '\n');
+        console.log(str + '\n');
     }
 
 }
